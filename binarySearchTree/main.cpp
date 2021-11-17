@@ -13,7 +13,7 @@ int main(){
     arbol->imprimirInOrder();
     arbol->imprimirPreOrden();
     arbol->imprimirPostOrden();
-
+    /*
     arbol->eliminarNodo(18);
     arbol->imprimirInOrder();
 
@@ -21,9 +21,12 @@ int main(){
     arbol->imprimirInOrder();
 
     arbol->eliminarNodo(33);
-    arbol->imprimirInOrder();
+    arbol->imprimirInOrder();*/
 
     cout << arbol->whatlevelamI(25) << endl;
-    arbol->byLevel();
+    arbol->visit(1);
+    arbol->visit(2);
+    arbol->visit(3);
+    cout << arbol->height() << endl;
     return 0;
 }

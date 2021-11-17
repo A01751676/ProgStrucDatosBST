@@ -201,27 +201,54 @@ class BST{
             
             if(dato){
                 fila.push(dato);
-                cout << fila.front()->getDato()->getDato();
-                
-                while(fila.front()->getDato()){
-                    cout << fila.front()->getDato()->getDato() << " ";
-
-                    /*
+                while(fila.front()){
+                    
+                    dato = fila.pop()->getDato();
+                    cout << dato->getDato() << " ";
+                    
                     if (dato->getIzq()){
-                        fila->push(dato->getIzq());
+                        fila.push(dato->getIzq());
                     }
 
                     if (dato->getDer()){
-                        fila->push(dato->getDer());
+                        fila.push(dato->getDer());
                     }
-
-                    */
-                    dato = fila.pop()->getDato();
+                    
                 }
-                //dato = fila.pop()->getDato();
+                
                 cout << endl;
             }
+            else{
+                cout << "arbol vacio" << endl;
+            }
             
-            
+        }
+
+        int heightAux (NodoBST<T>* actual){
+            if (actual){
+                int izq = heightAux(actual->getIzq());
+                int der = heightAux(actual->getDer());
+                if (izq > der){
+                    return izq +1;
+                }
+                else{
+                    return der +1;
+                }
+            }
+            else{
+                return 0;
+            }
+        
+        }
+
+        int height(){
+            return heightAux(this->raiz);
+        }
+
+        void visit(int opt){
+            if (opt == 1){this->imprimirPreOrden();}
+            else if (opt == 2){this->imprimirPostOrden();}
+            else if (opt == 3){this->byLevel();}
+            else{}
         }
 };
