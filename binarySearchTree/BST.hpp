@@ -181,16 +181,16 @@ class BST{
             }
         }
 
-        NodoBST<T>* antecesor(NodoBST<T>* dato){
+        NodoBST<T>* antecesor(T dato){
             if(this->buscarNodo(dato)){
-                return NodoBST<T>::valormayor(dato->getIzq());
+                return NodoBST<T>::valormayor(this->buscarNodo(dato)->getIzq());
             }
             else{return nullptr;}
         }
 
-        NodoBST<T>* sucesor(NodoBST<T>* dato){
+        NodoBST<T>* sucesor(T dato){
             if(this->buscarNodo(dato)){
-                return NodoBST<T>::valormenor(dato->getDer());
+                return NodoBST<T>::valormenor(this->buscarNodo(dato)->getDer());
             }
             else{return nullptr;}
         }
