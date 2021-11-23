@@ -113,6 +113,7 @@ class ListaSimple{
         int i = 0;
         while(i < ctr){
             nodo = nodo->getNodoSig();
+            i++;
         }
         return nodo;
     }
