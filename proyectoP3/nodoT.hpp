@@ -13,8 +13,8 @@ class NodoT{
     public:
         T getDato(){return this->dato;}
         void setDato(T dato){this->dato=dato;}
-        NodoT * getSiguiente(){return this->siguiente;}
-        void setSiguiente(NodoT * siguiente){this->siguiente=siguiente;}
+        NodoT * getNodoSig(){return this->siguiente;}
+        void setNodoSig(NodoT * siguiente){this->siguiente=siguiente;}
     
     NodoT(){
         this->dato=NULL;

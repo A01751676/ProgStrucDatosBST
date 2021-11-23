@@ -1,27 +1,28 @@
 #ifndef IPS
 #define IPS
 
+#include <string>
 using namespace std;
 
 class IP{
     private:
-        int ip;
+        string ip;
         int numAccesos;
 
     public:
 
         void setIP(int ip){this->ip = ip;}
-        int getIP(){return this->ip;}
+        string getIP(){return this->ip;}
 
         void setNumAccesos(int numAccesos){this->numAccesos = numAccesos;}
         int getNumAccesos(){return this->numAccesos;}
 
         IP(){
-            this->ip = 0;
+            this->ip = "";
             this->numAccesos = 0;
         }
 
-        IP(int ip, int numAccesos){
+        IP(string ip, int numAccesos){
             this->ip = ip;
             this->numAccesos = numAccesos;
         }
