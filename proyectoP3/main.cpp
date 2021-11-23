@@ -1,6 +1,7 @@
 #include "IPs.hpp"
 #include "listaCircularT.hpp"
 #include "listaSimple.hpp"
+#include "accesos.hpp"
 
 #include <iostream>
 #include <string>
@@ -44,6 +45,7 @@ void leerArchivo(string nomArch, ListaSimple<string>* &IP, ListaSimple<int>*  &v
             // significa que no hay registro 
             IP->agregarFinal(ipp);
             veces->agregarFinal(1);
+            cout << "1" << endl;
         }
 
     }

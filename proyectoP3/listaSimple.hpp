@@ -1,3 +1,6 @@
+#ifndef LISTASIMPLE
+#define LISTASIMPLE
+
 #include "nodoT.hpp"
 #include <iostream>
 #include <string>
@@ -116,3 +119,5 @@ class ListaSimple{
 
     
 };
+
+#endif
