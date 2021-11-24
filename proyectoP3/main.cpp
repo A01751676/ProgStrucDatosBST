@@ -92,19 +92,33 @@ void imprimirDosListasArchivo(string nomArch, ListaSimple<string>* lista1, Lista
         cout << endl;
     }
 
+void busqAccesos(int numAccesos, BST<Accesos*>* arbolAccesos){
+    
+    if(arbolAccesos->buscarNodo(numAccesos)){
+        cout << "Las direcciones IP con "; cout << numAccesos; cout <<" accesos son las siguientes" << endl;
+        arbolAccesos->buscarNodo(numAccesos)->getDato()->getListaIP()->imprimirLista();
+    }
+    else{
+        cout << "No existen IPs para el numero de accesos: "; cout << numAccesos;
+    }
+    cout << endl;
+}
+
 int main(){
 
     ListaSimple<string>* IP = new ListaSimple<string>();
     ListaSimple<int>*  veces = new ListaSimple<int>();
 
-    leerArchivo("bitacoraPrueba.txt",IP, veces);
+    leerArchivo("bitacoraCompleta.txt",IP, veces);
     imprimirDosListasArchivo("Informacion IP y Ocurrencia", IP, veces);
 
     BST<Accesos*>* arbolAccesos = new BST<Accesos*>();
     for (int i = 0; i < veces->getTam(); i++){
         arbolAccesos->agregarNodo(veces->nodoEnIndice(i)->getDato(), IP->nodoEnIndice(i)->getDato());
     }
-
+    
+    busqAccesos(15, arbolAccesos);
     arbolAccesos->imprimirInOrder();
+
 
 }

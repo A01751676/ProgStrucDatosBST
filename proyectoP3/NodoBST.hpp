@@ -51,7 +51,8 @@ class NodoBST{
 
         static void recorridoPreOrden(NodoBST<T>* actual){
             if (actual){
-                cout << actual->getDato() << " ";
+                cout << actual->getDato()->getNumAcceos() << "\t";
+                actual->getDato()->getListaIP()->imprimirLista();
                 recorridoPreOrden(actual->getIzq());
                 recorridoPreOrden(actual->getDer());
             }
@@ -61,7 +62,8 @@ class NodoBST{
             if (actual){
                 recorridoPostOrden(actual->getIzq());
                 recorridoPostOrden(actual->getDer());
-                cout << actual->getDato() << " ";
+                cout << actual->getDato()->getNumAcceos() << "\t";
+                actual->getDato()->getListaIP()->imprimirLista();
             }
         }
 
