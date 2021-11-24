@@ -1,3 +1,6 @@
+#ifndef NODOBST
+#define NODOBST
+
 #include <iostream>
 using namespace std;
 
@@ -40,7 +43,8 @@ class NodoBST{
         static void recorridoInOrder(NodoBST<T>* actual){
             if (actual){
                 recorridoInOrder(actual->getIzq());
-                cout << actual->getDato() << " ";
+                cout << actual->getDato()->getNumAcceos() << "\t";
+                actual->getDato()->getListaIP()->imprimirLista();
                 recorridoInOrder(actual->getDer());
             }
         }
@@ -80,3 +84,5 @@ class NodoBST{
         }
 
 };
+
+#endif

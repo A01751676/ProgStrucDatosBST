@@ -1,3 +1,6 @@
+#ifndef FILA
+#define FILA
+
 #include "ListaCircularT.hpp"
 
 template <typename T>
@@ -28,3 +31,5 @@ class Fila{ //Queue o Cola
 
 
 };
+
+#endif

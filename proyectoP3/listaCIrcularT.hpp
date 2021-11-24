@@ -1,3 +1,6 @@
+#ifndef LISTACIRCULAR
+#define LISTACIRCULAR
+
 #include "NodoT.hpp"
 
 template <typename T>
@@ -70,3 +73,5 @@ class ListaCircular{
 
     
 };
+
+#endif

@@ -2,6 +2,7 @@
 #include "listaCircularT.hpp"
 #include "listaSimple.hpp"
 #include "accesos.hpp"
+#include "BST.hpp"
 
 #include <iostream>
 #include <string>
@@ -30,17 +31,17 @@ void leerArchivo(string nomArch, ListaSimple<string>* &IP, ListaSimple<int>*  &v
         ipp.pop_back();
         ipp.pop_back();
 
-        cout << ipp << endl;
+        //cout << ipp << endl;
         
         if (IP->getHead()){
             // significa que existe un registro 
-            cout << "CASO 1" << endl;
+            //cout << "CASO 1" << endl;
 
             int indice = IP->buscarIndice(ipp);
-            cout << indice << endl;
+            //cout << indice << endl;
 
             if (indice == -1){
-                cout << "Caso 2" << endl;
+                //cout << "Caso 2" << endl;
                 // significa que no hay registro 
                 IP->agregarFinal(ipp);
                 veces->agregarFinal(1);
@@ -48,9 +49,9 @@ void leerArchivo(string nomArch, ListaSimple<string>* &IP, ListaSimple<int>*  &v
             }
 
             else{
-                cout << "CASO 3" << endl;
+                //cout << "CASO 3" << endl;
                 int ctrIP = veces->nodoEnIndice(indice)->getDato();
-                cout << ctrIP << endl;
+                //cout << ctrIP << endl;
                 veces->nodoEnIndice(indice)->setDato(ctrIP + 1);
             }
 
@@ -60,7 +61,7 @@ void leerArchivo(string nomArch, ListaSimple<string>* &IP, ListaSimple<int>*  &v
             // significa que no hay registro 
             IP->agregarFinal(ipp);
             veces->agregarFinal(1);
-            cout << "1" << endl;
+            //cout << "1" << endl;
         }
 
     }
@@ -79,7 +80,7 @@ void imprimirDosListasArchivo(string nomArch, ListaSimple<string>* lista1, Lista
         NodoT<string> * nodoLista1 = lista1->getHead();
         NodoT<int> * nodoLista2 = lista2->getHead();
 
-        miArchivo << "IP\t\t\t\t\t\t" << "Ocurrecia   " << endl;
+        miArchivo << "IP\t\t\t\t\t\t" << "Ocurrencia   " << endl;
         while(nodoLista1){
 
             miArchivo << nodoLista1->getDato() << "\t\t\t" << nodoLista2->getDato() << endl;
@@ -98,4 +99,12 @@ int main(){
 
     leerArchivo("bitacoraPrueba.txt",IP, veces);
     imprimirDosListasArchivo("Informacion IP y Ocurrencia", IP, veces);
+
+    BST<Accesos*>* arbolAccesos = new BST<Accesos*>();
+    for (int i = 0; i < veces->getTam(); i++){
+        arbolAccesos->agregarNodo(veces->nodoEnIndice(i)->getDato(), IP->nodoEnIndice(i)->getDato());
+    }
+
+    arbolAccesos->imprimirInOrder();
+
 }

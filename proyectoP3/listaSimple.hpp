@@ -73,7 +73,7 @@ class ListaSimple{
     void imprimirLista(){
         NodoT<T> * nodo = this->head;
         while(nodo){
-            cout << nodo->getDato() << " ";
+            cout << nodo->getDato() << "\t\t";
             nodo = nodo->getNodoSig();
         }
         cout << endl;

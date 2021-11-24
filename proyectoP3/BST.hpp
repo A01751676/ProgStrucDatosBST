@@ -1,5 +1,9 @@
+
+
 #include "NodoBST.hpp"
 #include "fila.hpp"
+#include "accesos.hpp"
+
 
 template <typename T>
 class BST{
@@ -20,44 +24,54 @@ class BST{
 
         }
 
-        void agregarNodo(T dato){
+        void agregarNodo(int dato, string ip){
             NodoBST<T> * actual= this->raiz;
             NodoBST<T> * padre;
             int nivel = 0;
             if(this->raiz){//Arbol no vacio
-                if(this->buscarNodo(dato)) //Nodo encontrado
-                    cout<<"Nodo existente"<<endl;                
+                if(this->buscarNodo(dato)) {//Nodo encontrado
+                    //cout<<"Nodo existente"<<endl;   
+                    ListaSimple<string>* listaIP = this->buscarNodo(dato)->getDato()-> getListaIP();
+                    listaIP->agregarFinal(ip);
+                    }
+
                 else{ //Nodo inexistente, 
                     //Encontrar al nodo padre
                     while(actual){
                         padre=actual;
                         //Relacion de orden de los nodos
-                        if(dato<actual->getDato())
+                        if(dato<actual->getDato()->getNumAcceos())
                             actual=actual->getIzq();
                         else
                             actual=actual->getDer();
                         nivel++;
                     }
                     //Colocar el nuevo nodo
-                    padre->getDato()>dato?padre->setIzq(new NodoBST<T>(padre,dato,nivel)):padre->setDer(new NodoBST<T>(padre,dato,nivel));
+                    Accesos* acceso = new Accesos();
+                    acceso->setNumAcceos(dato);
+                    acceso->getListaIP()->agregarFinal(ip);
+                    padre->getDato()->getNumAcceos()>dato?padre->setIzq(new NodoBST<T>(padre,acceso,nivel)):padre->setDer(new NodoBST<T>(padre,acceso,nivel));
                     this->numNodos++;
                 }
             }else{//Arbol vacio
-                this->raiz = new NodoBST<T>(nullptr,dato, nivel);
+                    Accesos* acceso = new Accesos();
+                    acceso->setNumAcceos(dato);
+                    acceso->getListaIP()->agregarFinal(ip);
+                this->raiz = new NodoBST<T>(nullptr,acceso, nivel);
                 this->numNodos++;
                 }
             
             return; //opcional
         }
-        NodoBST<T> * buscarNodo(T dato){
+        NodoBST<T> * buscarNodo(int dato){
             //Primer paso crear el apuntador a nodo raiz
             NodoBST<T> * actual = this->raiz;
             while(actual){
                 //Si el nodo actual es el valor que busco
-                if(actual->getDato()==dato)
+                if(actual->getDato()->getNumAcceos()==dato)
                     return actual;
                 else//cond?opc_verdadera:opc_falsa
-                    actual=actual->getDato()>dato?actual->getIzq():actual->getDer();
+                    actual=actual->getDato()->getNumAcceos()>dato?actual->getIzq():actual->getDer();
             }
             return nullptr; //return actual;
         }
