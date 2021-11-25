@@ -79,7 +79,7 @@ class BST{
         void imprimirInOrder(){
             cout << "Recorrido en Orden" << endl;
             cout << endl;
-            cout << "N Ac\t IPs" << endl;
+            //cout << "N Ac\t IPs" << endl;
             NodoBST<T>::recorridoInOrder(this->raiz);
             cout << endl;
         }
@@ -87,7 +87,7 @@ class BST{
         void imprimirPreOrden(){
             cout << "Recorrido en Pre Orden" << endl;
             cout << endl;
-            cout << "N Ac\t IPs" << endl;
+            //cout << "N Ac\t IPs" << endl;
             NodoBST<T>::recorridoPreOrden(this->raiz);
             cout << endl;
         }
@@ -95,7 +95,7 @@ class BST{
         void imprimirPostOrden(){
             cout << "Recorrido en Post Orden" << endl;
             cout << endl;
-            cout << "N Ac\t IPs" << endl;
+            //cout << "N Ac\t IPs" << endl;
             NodoBST<T>::recorridoPostOrden(this->raiz);
             cout << endl;
         }

@@ -45,7 +45,7 @@ void leerArchivo(string nomArch, ListaSimple<string>* &IP, ListaSimple<int>*  &v
                 // significa que no hay registro 
                 IP->agregarFinal(ipp);
                 veces->agregarFinal(1);
-                cout << "1" << endl;
+                //cout << "1" << endl;
             }
 
             else{
@@ -117,8 +117,11 @@ int main(){
         arbolAccesos->agregarNodo(veces->nodoEnIndice(i)->getDato(), IP->nodoEnIndice(i)->getDato());
     }
     
-    busqAccesos(15, arbolAccesos);
+    busqAccesos(34, arbolAccesos);
+    busqAccesos(50, arbolAccesos);
     arbolAccesos->imprimirInOrder();
+    cout << endl;
+    arbolAccesos->imprimirPreOrden();
 
 
 }

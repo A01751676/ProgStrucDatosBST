@@ -44,7 +44,7 @@ class NodoBST{
             if (actual){
                 recorridoInOrder(actual->getIzq());
                 cout << actual->getDato()->getNumAcceos() << "\t";
-                actual->getDato()->getListaIP()->imprimirLista();
+                //actual->getDato()->getListaIP()->imprimirLista();
                 recorridoInOrder(actual->getDer());
             }
         }
@@ -52,7 +52,7 @@ class NodoBST{
         static void recorridoPreOrden(NodoBST<T>* actual){
             if (actual){
                 cout << actual->getDato()->getNumAcceos() << "\t";
-                actual->getDato()->getListaIP()->imprimirLista();
+                //actual->getDato()->getListaIP()->imprimirLista();
                 recorridoPreOrden(actual->getIzq());
                 recorridoPreOrden(actual->getDer());
             }
@@ -63,7 +63,7 @@ class NodoBST{
                 recorridoPostOrden(actual->getIzq());
                 recorridoPostOrden(actual->getDer());
                 cout << actual->getDato()->getNumAcceos() << "\t";
-                actual->getDato()->getListaIP()->imprimirLista();
+                //actual->getDato()->getListaIP()->imprimirLista();
             }
         }
 
